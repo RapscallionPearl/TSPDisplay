@@ -1,0 +1,42 @@
+export default function CodeExample() {
+  const CodeExample = `
+    Eksempel kode:
+
+    {
+    "Type":"Card",
+    "VCardSetup": {
+        "Rows": [{
+            "Cols":[{
+                "ClassName": "colQuarter",
+                "Fields":[{
+                    "Type":"Image",
+                    "Style": {
+                        "maxWidth":"100px",
+                        "borderRadius":"50%"
+                    }
+                }]
+            },
+            {
+                "ClassName": "colThreeQuarter",
+                "Fields":[{
+                    "Type":"Label",
+                    "Label":"Navn",
+                    "FieldName":"displayName"
+                },
+                {
+                    "Type":"Mail",
+                    "Label":"Email",
+                    "FieldName":"mail"
+                }]
+            }]
+        }]
+      }  
+   }`;
+  return (
+    <>
+      <pre>
+        <code>{CodeExample}</code>
+      </pre>
+    </>
+  );
+}

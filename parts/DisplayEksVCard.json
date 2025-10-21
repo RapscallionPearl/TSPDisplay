@@ -1,0 +1,38 @@
+{
+  "Type": "Card",
+  "VCardSetup": {
+    "Rows": [
+      {
+        "Cols": [
+          {
+            "ClassName": "colQuarter",
+            "Fields": [
+              {
+                "Type": "Image",
+                "Style": {
+                  "maxWidth": "100px",
+                  "borderRadius": "50%"
+                }
+              }
+            ]
+          },
+          {
+            "ClassName": "colThreeQuarter",
+            "Fields": [
+              {
+                "Type": "Label",
+                "Label": "Navn",
+                "FieldName": "displayName"
+              },
+              {
+                "Type": "Mail",
+                "Label": "Email",
+                "FieldName": "mail"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
