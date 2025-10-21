@@ -57,7 +57,7 @@ function destructureObject({obj}) {
                     return objectComponents;
                     }
 
-// flatten object? måske bedre til at læse del elementer af objektet
+// flatten object? Maybe better to separate and display parts? testing it here
 
 function flattenObject(ob) {
     let toReturn = {};
@@ -92,5 +92,10 @@ function DisplayExample() {
         </>
     );
 }
+
+// needs to parse through the JSON Object, and get all keys with their related Arrays,
+// and end up with separate parts for each array
+// so that each part can maintain structure, and be reused
+// for later adding and editing in the expansion of the display.
 
 export default DisplayExample;
