@@ -164,113 +164,115 @@ function InsertFieldForm() {
             <th>Currently selected:</th>
           </tr>
         </thead>
-        <tr>
-          <td>
-            <form onReset={resetButton}>
-              <label htmlFor="ClassnameSelector">
-                ClassName :
-                <select
-                  name="ClassName"
-                  value={form.ClassName}
-                  className="form-control"
-                  id="sel1"
-                  onChange={inputHandler}
-                >
-                  {ClassNameList.map((i, index) => (
-                    <option key={index} value={i}>
-                      {i}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <br />
-              <label htmlFor="TypeSelector">
-                Type :
-                <select
-                  name="Type"
-                  value={form.Type}
-                  className="form-control"
-                  id="sel2"
-                  onChange={inputHandler}
-                >
-                  {TypeList.map((i, index) => (
-                    <option key={index} value={i}>
-                      {i}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <br />
-              <label htmlFor="FieldNameSelector">
-                FieldName :
-                <select
-                  name="FieldName"
-                  value={form.FieldName}
-                  className="form-control"
-                  id="sel3"
-                  onChange={inputHandler}
-                >
-                  {FieldNameList.map((i, index) => (
-                    <option key={index} value={i}>
-                      {i}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <br />
-              <label htmlFor="LabelTextInput">
-                Label :
-                <input
-                  name="Label"
-                  className="form-control"
-                  id="sel4"
-                  value={form.Label}
-                  onChange={inputHandler}
-                />
-              </label>
-              <br />
-              <label htmlFor="StyleAttInput">
-                Style :
+        <tbody>
+          <tr>
+            <td>
+              <form onReset={resetButton}>
+                <label htmlFor="ClassnameSelector">
+                  ClassName :
+                  <select
+                    name="ClassName"
+                    value={form.ClassName}
+                    className="form-control"
+                    id="sel1"
+                    onChange={inputHandler}
+                  >
+                    {ClassNameList.map((i, index) => (
+                      <option key={index} value={i}>
+                        {i}
+                      </option>
+                    ))}
+                  </select>
+                </label>
                 <br />
-                <input
-                  name="styletype"
-                  className="form-control"
-                  id="sel5"
-                  value={Object.keys(style)[0]}
-                  onChange={inputHandler}
-                />
-                <input
-                  name="attribute"
-                  className="form-control"
-                  id="sel6"
-                  value={Object.values(style)[0]}
-                  onChange={inputHandler}
-                />
-              </label>
-              <br />
-              <button type="reset">
-                Reset
-              </button>
-              <button type="button" onClick={styleSave}>
-                add style to current
-              </button>
-              <button type="button" onClick={deleteButton}>
-                Remove current style
-              </button>
-              <br />
-              currently to be added/removed:
-              <br /> {JSON.stringify(style)}
-              <br />
-              <button type="button" onClick={addToCardButton}>
-                Add Field to Card
-              </button>
-              <br />
-            </form>
-          </td>
-          <td>
-            <pre>{JSON.stringify(form, null, 2)}</pre>
-          </td>
-        </tr>
+                <label htmlFor="TypeSelector">
+                  Type :
+                  <select
+                    name="Type"
+                    value={form.Type}
+                    className="form-control"
+                    id="sel2"
+                    onChange={inputHandler}
+                  >
+                    {TypeList.map((i, index) => (
+                      <option key={index} value={i}>
+                        {i}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <br />
+                <label htmlFor="FieldNameSelector">
+                  FieldName :
+                  <select
+                    name="FieldName"
+                    value={form.FieldName}
+                    className="form-control"
+                    id="sel3"
+                    onChange={inputHandler}
+                  >
+                    {FieldNameList.map((i, index) => (
+                      <option key={index} value={i}>
+                        {i}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <br />
+                <label htmlFor="LabelTextInput">
+                  Label :
+                  <input
+                    name="Label"
+                    className="form-control"
+                    id="sel4"
+                    value={form.Label}
+                    onChange={inputHandler}
+                  />
+                </label>
+                <br />
+                <label htmlFor="StyleAttInput">
+                  Style :
+                  <br />
+                  <input
+                    name="styletype"
+                    className="form-control"
+                    id="sel5"
+                    value={Object.keys(style)[0]}
+                    onChange={inputHandler}
+                  />
+                  <input
+                    name="attribute"
+                    className="form-control"
+                    id="sel6"
+                    value={Object.values(style)[0]}
+                    onChange={inputHandler}
+                  />
+                </label>
+                <br />
+                <button type="reset">
+                  Reset
+                </button>
+                <button type="button" onClick={styleSave}>
+                  add style to current
+                </button>
+                <button type="button" onClick={deleteButton}>
+                  Remove current style
+                </button>
+                <br />
+                currently to be added/removed:
+                <br /> {JSON.stringify(style)}
+                <br />
+                <button type="button" onClick={addToCardButton}>
+                  Add Field to Card
+                </button>
+                <br />
+              </form>
+            </td>
+            <td>
+              <pre>{JSON.stringify(form, null, 2)}</pre>
+            </td>
+          </tr>
+        </tbody>
       </table>
       <hr />
       <pre>
@@ -288,68 +290,70 @@ export default function DisplayOption2() {
         <p>Option 2 er et Custom card</p>
         <p>Custom card består af følgende elementer:</p>
         <table>
-          <tr>
-            <td>Rows</td>
-            <td>Hvor mange rækker Dataen skal fylde</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Cols</td>
-            <td>Hvor mange Kolonner Dataen skal fylde</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ClassName</td>
-            <td>predefineret størrelse på datablokken, er ikke påkrævet</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Muligheder for ClassName</td>
-            <td>{ClassNameList.join(", ")}</td>
-          </tr>
-          <tr>
-            <td>Fields</td>
-            <td>Beskriver hvilken type data der skal vises og er påkrævet</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Data der kan være under Fields, kun Type er påkrævet:</td>
-            <td>{FieldTypeList.join(", ")}</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Type kan have værdien:</td>
-            <td>{TypeList.join(", ")}</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              Label er hvilken tekst der skal vises ved siden af datafeltet
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              FieldName er fra hvor datafeltet skal hive dataen og har følgende
-              muliehder:
-            </td>
-            <td>{FieldNameList.join(", ")}</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              Style definere hvordan datafeltet skal styles, er ikke påkrævet
-            </td>
-            <td>
-              style typer kan hentes her:
-              <a href="https://use-form.netlify.app/interfaces/_node_modules__types_react_index_d_.react.cssproperties.html">
-                CSSproperties Link
-              </a>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Rows</td>
+              <td>Hvor mange rækker Dataen skal fylde</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Cols</td>
+              <td>Hvor mange Kolonner Dataen skal fylde</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ClassName</td>
+              <td>predefineret størrelse på datablokken, er ikke påkrævet</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Muligheder for ClassName</td>
+              <td>{ClassNameList.join(", ")}</td>
+            </tr>
+            <tr>
+              <td>Fields</td>
+              <td>Beskriver hvilken type data der skal vises og er påkrævet</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Data der kan være under Fields, kun Type er påkrævet:</td>
+              <td>{FieldTypeList.join(", ")}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Type kan have værdien:</td>
+              <td>{TypeList.join(", ")}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                Label er hvilken tekst der skal vises ved siden af datafeltet
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                FieldName er fra hvor datafeltet skal hive dataen og har følgende
+                muliehder:
+              </td>
+              <td>{FieldNameList.join(", ")}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                Style definere hvordan datafeltet skal styles, er ikke påkrævet
+              </td>
+              <td>
+                style typer kan hentes her:
+                <a href="https://use-form.netlify.app/interfaces/_node_modules__types_react_index_d_.react.cssproperties.html">
+                  CSSproperties Link
+                </a>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <p>Eksempel på opsætning af Custom card:</p>
         <CodeExample />
