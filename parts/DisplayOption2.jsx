@@ -1,4 +1,4 @@
-import { values }  from "@fluentui/react";
+import { values } from "@fluentui/react";
 import { useState } from "react";
 import CodeExample from "./CodeExample";
 import { Table } from "react-bootstrap";
@@ -188,7 +188,7 @@ function InsertFieldForm() {
                 Type :
                 <select
                   name="Type"
-                  Value={form.Type}
+                  value={form.Type}
                   className="form-control"
                   id="sel2"
                   onChange={inputHandler}
@@ -205,7 +205,7 @@ function InsertFieldForm() {
                 FieldName :
                 <select
                   name="FieldName"
-                  Value={form.FieldName}
+                  value={form.FieldName}
                   className="form-control"
                   id="sel3"
                   onChange={inputHandler}
@@ -248,20 +248,20 @@ function InsertFieldForm() {
                 />
               </label>
               <br />
-              <button type="reset" onReset={resetButton}>
+              <button type="reset">
                 Reset
               </button>
               <button type="button" onClick={styleSave}>
                 add style to current
               </button>
-              <button type="delete" onClick={deleteButton}>
+              <button type="button" onClick={deleteButton}>
                 Remove current style
               </button>
               <br />
               currently to be added/removed:
               <br /> {JSON.stringify(style)}
               <br />
-              <button type="saveall" onClick={addToCardButton}>
+              <button type="button" onClick={addToCardButton}>
                 Add Field to Card
               </button>
               <br />
