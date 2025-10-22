@@ -1,0 +1,35 @@
+{
+  "name": "tspdisplay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RapscallionPearl/TSPDisplay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/RapscallionPearl/TSPDisplay/issues"
+  },
+  "homepage": "https://github.com/RapscallionPearl/TSPDisplay#readme",
+  "dependencies": {
+    "@fluentui/react": "^8.124.2",
+    "@microsoft/sp-lodash-subset": "^1.21.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.11"
+  }
+}
