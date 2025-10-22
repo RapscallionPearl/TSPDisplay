@@ -1,4 +1,4 @@
-import values from "@fluentui/react";
+import { values }  from "@fluentui/react";
 import { useState } from "react";
 import CodeExample from "./CodeExample";
 import { Table } from "react-bootstrap";
