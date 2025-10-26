@@ -31,71 +31,47 @@ const ExampleCode = {
     }
 }
 
-function destructureObject({obj}) {
-     let tempObj = obj;
-     let objectComponents = [];
-        Object.keys(tempObj).forEach((key) => {
-            if (typeof tempObj[key] === 'object' && !Array.isArray(tempObj[key])) {
-                objectComponents.push({[key]: destructureObject({obj: tempObj[key]})});
-                }
-            else if (Array.isArray(tempObj[key])) {
-                let arrayComponents = [];
-                tempObj[key].forEach((item, index) => {
-                    if (typeof item === 'object') {
-                        arrayComponents.push(destructureObject({obj: item}));
-                        } else {
-                            arrayComponents.push(item);
-                            }
-                            });
-                            objectComponents.push({[key]: arrayComponents});
-                            }
-
-            else {
-                    objectComponents.push({[key]: tempObj[key]});
-                    }
-                    });
-                    return objectComponents;
-                    }
-
-// flatten object? Maybe better to separate and display parts? testing it here
-
-function flattenObject(ob) {
-    let toReturn = {};
-    for (let i in ob) {
-        if (!ob.hasOwnProperty(i)) continue;
-        if ((typeof ob[i]) == 'object' && ob[i] !== null) {
-            let flatObject = flattenObject(ob[i]);
-            for (let x in flatObject) {
-                if (!flatObject.hasOwnProperty(x)) continue;
-                toReturn[i + '.' + x] = flatObject[x];
-                }
-                } else {
-                    toReturn[i] = ob[i];
-                    }
-                    }
-                    return toReturn;
-                    }
-
-
-
-function DisplayExample() {
-    let obj = ExampleCode;
-    Object.keys(obj).forEach((key) => {console.log(key, obj[key])});
-    Object.entries(obj).forEach(([key, value]) => {console.log(key, value)});
-        let components = destructureObject({obj: obj});
-        console.log("destructure funktion ", components);
-    let flat = flattenObject(obj);
-    console.log("flat funktion ", flat);
-    return (
-        <>
-            <pre>{JSON.stringify(ExampleCode, null, 2)}</pre>
-        </>
-    );
-}
-
 // needs to parse through the JSON Object, and get all keys with their related Arrays,
 // and end up with separate parts for each array
 // so that each part can maintain structure, and be reused
 // for later adding and editing in the expansion of the display.
 
-export default DisplayExample;
+function extractArraysFromObject(obj = ExampleCode) {
+  const results = [];
+  const seen = new Set();
+
+  function helper(value, path) {
+    if (value && typeof value === "object") {
+      if (seen.has(value)) return; // prevent circular loops
+      seen.add(value);
+    }
+
+    if (Array.isArray(value)) {
+      results.push({ path: path || "root", array: value });
+      value.forEach((item, i) => helper(item, `${path}[${i}]`));
+    } else if (value && typeof value === "object") {
+      Object.keys(value).forEach((key) =>
+        helper(value[key], path ? `${path}.${key}` : key)
+      );
+    }
+  }
+
+  helper(obj, "");
+  return results;
+}
+
+function DisplayArrays() {
+  const arrays = extractArraysFromObject(ExampleCode);
+  return (
+    <>
+      {arrays.map((item, index) => (
+        <div key={index}>
+          <h4>Array found at: {item.path}</h4>
+          <pre>{JSON.stringify(item.array, null, 2)}</pre>
+        </div>
+      ))}
+    </>
+  );
+}
+export default DisplayArrays;
+
